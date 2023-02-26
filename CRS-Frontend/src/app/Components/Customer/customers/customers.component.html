@@ -1,0 +1,49 @@
+<br>
+<main>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center text-white bg-dark">All Available Customer's</h2>
+                <div class="table-responsive">
+                    <table class="table table-dark table-striped table-bordered table-hover">
+                        <thead class="thead-dark text-center">
+                            <tr>
+                                <th>S.No.</th>
+                                <th>Customer Id</th>
+                                <th>User Name</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Pincode</th>
+                                <th>E-mail</th>
+                                <th>Contact</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center">
+                            <tr *ngFor="let customer of user">
+                                <td></td>
+                                <td><span>{{customer.userId}}</span></td>
+                                <td><span>{{customer.username}}</span></td>
+                                <td><span>{{customer.firstName}}</span></td>
+                                <td><span>{{customer.lastName}}</span></td>
+                                <td><span>{{customer.pinCode}}</span></td>
+                                <td><span>{{customer.email}}</span></td>
+                                <td><span>{{customer.phone}}</span></td>
+
+                                <td>
+                                    <div class="btn-group" role="group" aria-label="Basic example">
+                                        <button (click)="deleteCustomer(customer.userId)"
+                                            class="btn btn-danger">Delete</button>
+                                        <button (click)="updateCustomer(customer.username)"
+                                            class="btn btn-info">Update</button>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

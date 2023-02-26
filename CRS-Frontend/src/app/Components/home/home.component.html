@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="row">
+        <div class="col text-center">
+            <div class="card bg-dark">
+                <div class="card-body">
+                    <div id="demo" class="carousel slide" data-ride="carousel">
+
+                        <!-- Indicators -->
+                        <ul class="carousel-indicators">
+                            <li data-target="#demo" data-slide-to="0" class="active"></li>
+                            <li data-target="#demo" data-slide-to="1"></li>
+                            <li data-target="#demo" data-slide-to="2"></li>
+                        </ul>
+
+                        <!-- The slideshow -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="https://etimg.etb2bimg.com/photo/86415508.cms"
+                                    style="width: 1000px;height: 200px;" alt="Los Angeles">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://assets-global.website-files.com/5b6df8bb681f89ec20b48f37/5c92c754199a682829dc3f56_content-img5.jpg"
+                                    style="width: 1000px;height: 200px;" alt="Chicago">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://d2poqm5pskresc.cloudfront.net/wp-content/uploads/2019/11/transition-of-back-office-operations-for-a-european-telecom-company-1.jpg"
+                                    style="width: 1000px;height: 200px;" alt="New York">
+                            </div>
+                        </div>
+
+                        <!-- Left and right controls -->
+                        <a class="carousel-control-prev" href="#demo" data-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </a>
+                        <a class="carousel-control-next" href="#demo" data-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col mx-auto">
+            <div class="card bg-primary">
+                <div class="card-body">
+                    <div class="text-white text-center">
+                        <h1 class="display-1"><u><b>ABC Telecom Ltd.</b></u></h1>
+                        <p>India's major telecommunication service providers</p>
+                        <h5 class="font-italic">To register a complaint regarding our services</h5>
+                        <a *ngIf="!loginService.isLoggedIn()" role="button" routerLink="/user-login"
+                            class="btn btn-danger btn-lg">Click here</a>
+                        <a *ngIf="loginService.isLoggedIn()" role="button" routerLink="/user-login"
+                            class="btn btn-danger disabled btn-lg">Click here</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

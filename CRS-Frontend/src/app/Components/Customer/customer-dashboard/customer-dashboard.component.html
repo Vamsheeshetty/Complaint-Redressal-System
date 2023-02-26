@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="row">
+        <div class="col">
+            <div class="jumbotron jumbotron-fluid bg-secondary">
+                <div class="text-center text-white">
+                    <h1>Welcome {{name}} !</h1>
+                </div>
+            </div>
+            <div class="card-deck mx-auto mb-3">
+                <div class="card bg-light">
+                    <img class="card-img-top"
+                        src="https://www.clipartkey.com/mpngs/m/125-1257963_transparent-hearing-clipart-complaint-management-system-logo-png.png"
+                        alt="Card image" style="width:100%; height:250px;">
+                    <div class="card-body">
+                        <h4 class="card-title">Raise a new complaint</h4>
+                        <a routerLink="/create-complaint" role="button" class="btn btn-danger btn-block"><b>Raise
+                                Complaint</b></a>
+                    </div>
+                </div>
+                <div class="card bg-info">
+                    <img class="card-img-top"
+                        src="https://www.smithpublicity.com/wp-content/uploads/complaint-box-web-300x232.png"
+                        alt="Card image" style="width:100%; height:250px;">
+                    <div class="card-body">
+                        <h4 class="card-title">Show all Complaint's</h4>
+                        <a routerLink="/customer/get-complaints" role="button" class="btn btn-warning btn-block"><b>Show
+                                Complaint's</b></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

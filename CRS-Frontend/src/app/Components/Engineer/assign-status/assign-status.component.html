@@ -1,0 +1,72 @@
+<br><br><br>
+<div class="container">
+    <div class="row">
+        <div class="col-6 mx-auto mt-3 mb-4">
+            <div class="card">
+                <div class="card-header">
+                    <h4 class="text-center">Update Complaint Status</h4>
+                </div>
+                <div class="card-body">
+                    <form #assign="ngForm" (ngSubmit)="assignStatus()">
+                        <div class="form-group">
+                            <label for="st">Select Status:</label>
+                            <select [(ngModel)]="complaint.status" name="status" class="form-control" id="st"
+                                #st="ngModel" required ngModel>
+                                <option value="WIP">WIP</option>
+                                <option value="RESOLVED">RESOLVED</option>
+                                <option value="ESCALATED">ESCALATED</option>
+                            </select>
+                            <span *ngIf="st.invalid && st.touched" style="color: red;">Please select a status</span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="rmk">Remark:</label>
+                            <input type="text" class="form-control" required #rmk="ngModel"
+                                placeholder="Enter status remark" id="rmk" name="remark" [(ngModel)]="complaint.remark"
+                                ngModel>
+                            <span *ngIf="rmk.invalid && rmk.touched" style="color:red">Please enter valid
+                                remark</span>
+                        </div>
+
+
+                        <div class="text-center">
+
+                            <button type="submit" class="btn btn-primary" data-toggle="modal"
+                                [disabled]="assign.invalid" data-target="#myModal">Update Status</button>
+
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">Assign Status</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <span *ngIf="isValid" style="color:green">{{message}}</span>
+                                            <span *ngIf="!isValid" style="color: red">{{message}}</span>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" (click)="onClick()"
+                                                data-dismiss="modal">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,144 @@
+<div class="container">
+    <div class="row">
+        <div class="col-8 mx-auto mt-3 mb-4">
+            <div class="card">
+                <div class="card-header bg-info">
+                    <h3 class="text-center">Create a new Complaint</h3>
+                    <p class="text-center">Kindly enter your details</p>
+                </div>
+                <div class="card-body">
+                    <form #registerationForm="ngForm" (ngSubmit)="onSubmit()">
+                        <div class="form-group">
+                            <label for="username">Username:</label>
+                            <input type="text" class="form-control" required #username="ngModel"
+                                placeholder="Enter Username" id="username" name="username"
+                                [(ngModel)]="complaint.username" ngModel readonly>
+                            <span *ngIf="username.invalid && username.touched" style="color: red">Please enter a valid
+                                username.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="newcomplaint">Complaint:</label>
+                            <select class="form-control" id="newcomplaint" name="complaint"
+                                [(ngModel)]="complaint.complaint" ngModel required #newcomplaint="ngModel">
+                                <option selected disabled>Select Complaint</option>
+                                <option value="Unable to make a call">Unable to make a call</option>
+                                <option value="Unable to receive a call">Unable to receive a call</option>
+                                <option value="Phone dead">Phone Dead</option>
+                                <option value="Noisy voice">Noisy Voice</option>
+                                <option value="Slow broadband speed">Slow broadband speed</option>
+                                <option value="No signal">No signal</option>
+                            </select>
+                            <span *ngIf="newcomplaint.invalid && newcomplaint.touched" style="color: red">Please select
+                                a
+                                valid complaint.</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="fname">First Name:</label>
+                            <input type="text" class="form-control" required #firstName="ngModel"
+                                placeholder="Enter your first name" id="fname" name="firstName"
+                                [(ngModel)]="complaint.firstName" ngModel>
+                            <span *ngIf="firstName.invalid && firstName.touched" style="color:red">Please enter valid
+                                first name</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="lname">Last Name:</label>
+                            <input type="text" required #lastName="ngModel" class="form-control"
+                                placeholder="Enter your last name" id="lname" name="lastName"
+                                [(ngModel)]="complaint.lastName" ngModel>
+                            <span *ngIf="lastName.invalid && lastName.touched" style="color: red">Please enter valid
+                                last name</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="address">Current Address:</label>
+                            <input type="text" required #address="ngModel" class="form-control"
+                                placeholder="Enter your current address" id="address" name="address"
+                                [(ngModel)]="complaint.address" ngModel>
+                            <span *ngIf="address.invalid && address.touched" style="color:red">Please enter valid
+                                address</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="pincode">Area Pincode:</label>
+                            <input type="text" required #pinCode="ngModel" class="form-control"
+                                placeholder="Enter your area pincode" id="pincode" name="pinCode" minlength="6"
+                                [(ngModel)]="complaint.pinCode" ngModel>
+                            <span *ngIf="pinCode.invalid && pinCode.touched" style="color:red">Please enter valid
+                                pincode</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="state">State:</label>
+                            <input type="text" required #state="ngModel" class="form-control"
+                                placeholder="Enter your state" id="state" name="state" [(ngModel)]="complaint.state"
+                                ngModel>
+                            <span *ngIf="state.invalid && state.touched" style="color:red">Please enter valid
+                                state</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact">Phone no. :</label>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text">+91</span>
+                                </div>
+                                <input type="text" required #contact="ngModel" class="form-control"
+                                    placeholder="Enter your contact number" id="contact" name="contact" minlength="10"
+                                    [(ngModel)]="complaint.contact" ngModel>
+                            </div>
+                            <span *ngIf="contact.invalid && contact.touched" style="color:red">Please enter valid phone
+                                number</span>
+                        </div>
+
+                        <div class="text-center">
+
+                            <button type="submit" class="btn btn-danger btn-block"
+                                [disabled]="registerationForm.invalid" data-toggle="modal"
+                                data-target="#myModal">Register Complaint</button>
+                            <!-- The Modal -->
+                            <div class="modal fade" id="myModal">
+                                <div class="modal-dialog modal-dialog-centered">
+                                    <div class="modal-content">
+
+                                        <!-- Modal Header -->
+                                        <div class="modal-header">
+                                            <h4 class="modal-title">ABC Telecom Complaint Registration</h4>
+                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                        </div>
+
+                                        <!-- Modal body -->
+                                        <div class="modal-body">
+                                            <h5 *ngIf="isValid" style="color:green">{{message}}</h5>
+
+                                            <div *ngIf="isValid" class="text-center">
+                                                <hr>
+                                                <p><b>Complaint Id: </b>{{complaint.id}}</p>
+                                                <p><b>Complaint: </b> {{complaint.complaint}}</p>
+                                                <p><b>Status: </b><span style="color: red">{{complaint.status}}</span>
+                                                </p>
+                                                <p><b>Customer Name: </b>{{complaint.firstName}} {{complaint.lastName}}
+                                                </p>
+                                                <p><b>Username: </b>{{complaint.username}}</p>
+                                                <p><b>Current Address: </b>{{complaint.address}}, {{complaint.state}}
+                                                </p>
+                                                <p><b>Pincode: </b>{{complaint.pinCode}}</p>
+                                                <p><b>Contact Number: </b>{{complaint.contact}}</p>
+                                            </div>
+                                            <span *ngIf="!isValid" style="color: red">{{message}}</span>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                                                (click)="onClick()">Close</button>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

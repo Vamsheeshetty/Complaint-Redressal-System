@@ -1,0 +1,80 @@
+<main>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col">
+                <div class="card mx-auto bg-light mb-2 mt-2">
+                    <div class="card-body">
+                        <h1 class="card-title text-center">Welcome Admin: {{name}}
+                        </h1>
+                        <p class="card-text text-center">Love to see you again <b>{{username}}</b></p>
+                        <div class="card-deck">
+                            <div class="card bg-info">
+                                <img class="card-img-top"
+                                    src="https://www.freeiconspng.com/thumbs/customers-icon/customers-icon-12.png"
+                                    alt="Card image" style="width:100%; height:250px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Create a User</h4>
+                                    <p class="card-text">Create new user like customer, manager & engineer. </p>
+
+                                </div>
+                                <div class="card-footer">
+                                    <a routerLink="/register-user" role="button"
+                                        class="btn btn-danger btn-block"><b>Create
+                                            User</b>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <div class="card bg-success">
+                                <img class="card-img-top"
+                                    src="https://icons.iconarchive.com/icons/aha-soft/free-large-boss/512/Manager-icon.png"
+                                    alt="Card image" style="width:100%; height:250px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Show all Manager's</h4>
+                                    <p class="card-text">Display all available manager's.</p>
+
+                                </div>
+                                <div class="card-footer">
+                                    <a routerLink="/managers" role="button" class="btn btn-danger btn-block"><b>Show
+                                            Manager's</b></a>
+                                </div>
+                            </div>
+
+                            <div class="card bg-primary">
+                                <img class="card-img-top"
+                                    src="https://iconarchive.com/download/i69397/aha-soft/free-large-boss/Businessman.512.png"
+                                    alt="Card image" style="width:100%; height:250px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Show all Engineer's</h4>
+                                    <p class="card-text">Display all available engineer's.</p>
+
+                                </div>
+                                <div class="card-footer">
+                                    <a routerLink="/engineers" role="button" class="btn btn-danger btn-block"><b>Show
+                                            Engineer's</b></a>
+                                </div>
+                            </div>
+
+                            <div class="card bg-warning">
+                                <img class="card-img-top"
+                                    src="https://www.pngplay.com/wp-content/uploads/7/Customer-Logo-Transparent-File.png"
+                                    alt="Card image" style="width:100%; height:250px;">
+                                <div class="card-body">
+                                    <h4 class="card-title">Show all Customer's</h4>
+                                    <p class="card-text">Display all available customer's.</p>
+
+                                </div>
+                                <div class="card-footer">
+                                    <a routerLink="/customers" role="button" class="btn btn-danger btn-block"><b>Show
+                                            Customer's</b></a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</main>
